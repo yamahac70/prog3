@@ -1,0 +1,24 @@
+{
+  "libros": [
+    {
+      "id": "2",
+      "nombre": "Libro 2",
+      "autor": "Autor 1",
+      "editorial": "Editorial 1",
+      "genero": "Genero 1",
+      "cantidad": "Cantidad 1",
+      "img": "https://cataas.com/cat/says/Libro2"
+    }
+  ],
+  "alumnos": [
+    {
+      "id": "1",
+      "nombre": "Mauro",
+      "apellido": "Acosta",
+      "fechaNacimiento": "30/12/1995",
+      "genero": "M"
+    }
+  ],
+  "prestamos": [],
+  "historial": []
+}
