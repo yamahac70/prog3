@@ -1,14 +1,108 @@
 {
   "libros": [
-    {
-      "id": "2",
-      "nombre": "Libro 2",
-      "autor": "Autor 1",
-      "editorial": "Editorial 1",
-      "genero": "Genero 1",
-      "cantidad": "Cantidad 1",
-      "img": "https://cataas.com/cat/says/Libro2"
-    }
+
+    
+      {
+        "id": "1",
+        "nombre": "El código Da Vinci",
+        "autor": "Dan Brown",
+        "editorial": "Doubleday",
+        "genero": "Misterio, Thriller",
+        "cantidad": 5,
+        "img": "https://cataas.com/cat/says/codigodavinci.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "2",
+        "nombre": "Harry Potter y la piedra filosofal",
+        "autor": "J.K. Rowling",
+        "editorial": "Bloomsbury",
+        "genero": "Fantasía",
+        "cantidad": 8,
+        "img": "https://cataas.com/cat/says/harrypotter.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "3",
+        "nombre": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "editorial": "Sudamericana",
+        "genero": "Realismo mágico",
+        "cantidad": 10,
+        "img": "https://cataas.com/cat/says/cienaniosdesoledad.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "4",
+        "nombre": "Orgullo y prejuicio",
+        "autor": "Jane Austen",
+        "editorial": "T. Egerton",
+        "genero": "Romance",
+        "cantidad": 6,
+        "img": "https://cataas.com/cat/says/orgulloyprejuicio.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "5",
+        "nombre": "1984",
+        "autor": "George Orwell",
+        "editorial": "Secker & Warburg",
+        "genero": "Ficción distópica",
+        "cantidad": 3,
+        "img": "https://cataas.com/cat/says/1984.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "6",
+        "nombre": "Matar a un ruiseñor",
+        "autor": "Harper Lee",
+        "editorial": "J. B. Lippincott & Co.",
+        "genero": "Novela",
+        "cantidad": 4,
+        "img": "https://cataas.com/cat/says/matarunruisenor.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "7",
+        "nombre": "El Gran Gatsby",
+        "autor": "F. Scott Fitzgerald",
+        "editorial": "Charles Scribner's Sons",
+        "genero": "Ficción",
+        "cantidad": 2,
+        "img": "https://cataas.com/cat/says/grangatsby.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "8",
+        "nombre": "Crónica de una muerte anunciada",
+        "autor": "Gabriel García Márquez",
+        "editorial": "La Oveja Negra",
+        "genero": "Novela",
+        "cantidad": 7,
+        "img": "https://cataas.com/cat/says/cronicamuerte.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "9",
+        "nombre": "Don Quijote de la Mancha",
+        "autor": "Miguel de Cervantes",
+        "editorial": "Francisco de Robles",
+        "genero": "Novela de aventuras",
+        "cantidad": 3,
+        "img": "https://cataas.com/cat/says/donquijote.jpg",
+        "estado":"D"
+      },
+      {
+        "id": "10",
+        "nombre": "Los juegos del hambre",
+        "autor": "Suzanne Collins",
+        "editorial": "Scholastic",
+        "genero": "Ciencia ficción",
+        "cantidad": 9,
+        "img": "https://cataas.com/cat/says/juegosdelhambre.jpg",
+        "estado":"D"
+      }
+    
   ],
   "alumnos": [
     {
@@ -16,9 +110,17 @@
       "nombre": "Mauro",
       "apellido": "Acosta",
       "fechaNacimiento": "30/12/1995",
+      "dni":32115544,
       "genero": "M"
     }
   ],
-  "prestamos": [],
-  "historial": []
+  "prestamos": [
+    {
+      "id": "1",
+      "idAlumno": "1",
+      "idLibro": "1",
+      "fechaPrestamo": "30/12/2022",
+      "fechaDevolucion": ""
+    }
+  ]
 }

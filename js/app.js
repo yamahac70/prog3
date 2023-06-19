@@ -1,93 +1,33 @@
-const Url_Libros="http://localhost:3000/libros"
-const Url_Alumnos="http://localhost:3000/alumnos"
-const Url_prestamos="http://localhost:3000/prestamos"
-const Url_historial="http://localhost:3000/historial"
+import {llamarLibros,eliminarLibro} from './controller/librosController.js';
+const listaLibros=document.getElementById("listaLibros")
 
-//Función para obtener libros
-async function llamarLibros(){
-  /* 
-  - se llama a los libros de la API
-  - se crea una promesa
-  - se ejecuta
-  - se retorna
-  
-  * es importante no olvidar el try catch para capturar errores 
-  */
-  try {
-    const response=await fetch(Url_Libros)
-    const libros=await response.json()
-    return libros
 
-  } catch (error) {
-    alert("tengo un error")
-    console.error(error)
-  }
-   
-
-  
+async function renderLibros(){
+ const libros=await llamarLibros(); //el api devuelve un Array 
+  libros.forEach(libro => {
+    //creamos parte del dom
+    const li=document.createElement("li")
+    li.innerText=libro.nombre
+    listaLibros.appendChild(li)
+    const img=document.createElement("img")
+    img.src=libro.img
+    img.width=100
+    li.appendChild(img)
+    const button=document.createElement("button")
+    button.innerText="Eliminar"
+    button.addEventListener("click",eliminarLibro.bind(null,libro.id,{padre:listaLibros,hijo:li}))
+    li.appendChild(button)
+    
+  });
 }
 
-//funcion crear libros
-async function llamarAlumno(){
-    try {
-      const r=await fetch(Url_Alumnos);
-      const alumnos=await r.json();
-      return alumnos;
 
-    } catch (error) {
-      console.error(error)
-    }
-}
-
-async function llamarPrestamos(){
-    try {
-      const r= fetch(Url_prestamos)
-      const prestamos= r.json()
-
-      return prestamos;
-    } catch (error) {
-      console.error(error)
-    }
-}
-
-async function eliminarLibro(id){
-    try {
-      const confiramcion=confirm("quiere eliminar este libro?")
-      if (confiramcion) {
-        const r=await fetch(Url_Libros+"/"+id,{
-          method:"DELETE",
-     
-        });
-        alert("Libro Eliminado")
-        
-      }
-        return null;
-    } catch (error) {
-      alert(error.message)
-    }
-}
 
 
 async function  main(){
-const listaLibros=document.getElementById("listaLibros")
-  //const producto=10;
- const libros=await llamarLibros(); //el api devuelve un Array 
- console.log(libros)
+    await renderLibros()
 
 
-  libros.forEach(libro => {
-      listaLibros.innerHTML +=`
-      <li>${libro.nombre}
-        <img src=${libro.img} width="100px"><img/>
-        <button onClick="eliminarLibro(${libro.id})">Eliminar</button>
-      <li/>
-      `
-  });
-
-
-
-  //console.log(await llamarAlumno())
-  //console.log(await llamarPrestamos())
   
 }
 
@@ -97,22 +37,3 @@ const listaLibros=document.getElementById("listaLibros")
 await main()
 })()
 
-
-//funcion editar libros
-
-//funcion eliminar libros
-
-/* [2,3,4,456,576,5,6]
-{
-  nombre:"mauro",
-  apellido:"acosta"
-}
-[
-{
-  nombre:"ma"
-},
-{
-  nombre:"pe"
-}
-
-] */

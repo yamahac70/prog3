@@ -1,0 +1,26 @@
+.main{
+    display: flex;
+    flex-direction: column;
+
+}
+.alumnosBusqueda{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.alumnosBusqueda::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5px;
+    bottom: -15px;
+    background-color: #5e5e5e;
+}
+.libros{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
