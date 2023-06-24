@@ -1,12 +1,28 @@
 const Url_Alumnos="http://localhost:3000/alumnos"
-export async function llamarAlumno(){
+export async function llamarAlumno(dniAlumno){
+
+
+
     try {
+      
+    
+      
       const r=await fetch(Url_Alumnos);
+
       const alumnos=await r.json();
-      return alumnos;
+
+
+      if (dniAlumno!==undefined) {
+        return alumnos.find((item,index)=>{
+          return item.dni==dniAlumno
+        })
+      }else{
+        return alumnos;
+
+      }
 
     } catch (error) {
-      console.error(error)
+      throw error
     }
 }
 
@@ -23,7 +39,35 @@ export async function eliminarAlumno(id){
       }
         return null;
     } catch (error) {
-      alert(error.message)
+      throw error
     }
   }
   
+export async function crearAlumno(obj){
+  try {
+      const r=await fetch(Url_Alumnos,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(obj)
+      })
+  } catch (error) {
+      alert(error.message)
+  }
+}
+
+export async function modificarAlumno(id,data){
+  try {
+      const r=await fetch(Url_Alumnos+"/"+id,{
+        method:"PUT",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+      })
+  } catch (error) {
+      alert(error.message)
+  }
+  
+}

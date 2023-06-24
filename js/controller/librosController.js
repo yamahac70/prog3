@@ -2,7 +2,7 @@ const Url_Libros="http://localhost:3000/libros"
 
 
 //Función para obtener libros
-export async function llamarLibros(){
+export async function llamarLibros(id){
     /* 
     - se llama a los libros de la API
     - se crea una promesa
@@ -12,7 +12,13 @@ export async function llamarLibros(){
     * es importante no olvidar el try catch para capturar errores 
     */
     try {
-      const response=await fetch(Url_Libros)
+      let response;
+      if (id!==undefined) {
+        response=await fetch(Url_Libros+`/${id}`)
+        console.log(Url_Libros+`/${id}`)
+      }else{
+        response=await fetch(Url_Libros)
+      }
       const libros=await response.json()
       return libros
   
@@ -39,5 +45,25 @@ export async function llamarLibros(){
         return null;
     } catch (error) {
       alert(error.message)
+    }
+}
+
+
+export async function editarLibro(id,data){
+    try {
+        const r =await fetch(Url_Libros+`/${id}`,
+        {
+          method:"PATCH",
+          body:JSON.stringify(data),
+          headers:{
+            "Content-Type": "application/json",
+          }
+        }
+
+        );
+        return true;
+    } catch (error) {
+      alert("error en la edicion")
+      return false
     }
 }
